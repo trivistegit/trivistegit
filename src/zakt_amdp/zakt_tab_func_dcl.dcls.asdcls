@@ -1,0 +1,12 @@
+@EndUserText.label: 'TAB_FUNC_DCL'
+@MappingRole: true
+define role ZAKT_TAB_FUNC_DCL {
+    grant
+        select
+            on
+                ZAKT_TABLE_FUNC_EMPLOYEE
+                    where
+                        employee_id = '2';
+//                       or entity_element_2 = aspect user;
+                        
+}
