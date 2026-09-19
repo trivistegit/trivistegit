@@ -1,0 +1,7 @@
+" Write the Notification ID to the standard Application Log
+DATA(lo_log) = cl_bali_log=>create_with_header(
+                 header = cl_bali_header_setter=>create( object = 'ZPM' subobject = 'ZNOTIF' )
+               ).
+lo_log->add_item( item = cl_bali_free_text_setter=>create( text = |Event Caught for Notif: { lv_notif_id }| ) ).
+cl_bali_log_db=>get_instance( )->save_log( log = lo_log ).
+COMMIT WORK. " Safe to do here as it's an independent background session
